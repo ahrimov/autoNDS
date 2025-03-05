@@ -1,0 +1,10 @@
+install postgresql
+
+net start postgresql-x64-17
+
+psql -U postgres
+CREATE USER admin WITH PASSWORD '1';
+CREATE DATABASE documents OWNER admin;
+GRANT ALL PRIVILEGES ON DATABASE documents TO admin;
+\q
+
