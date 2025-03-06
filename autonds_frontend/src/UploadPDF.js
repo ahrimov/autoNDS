@@ -9,9 +9,10 @@ export function UploadPDF() {
         formData.append('file', file);
 
         try {
-            const response = await axios.get('http://localhost:8000/api/documents/', {
-                headers: { 'Content-Type': 'multipart/form-data' },
-            });
+            const response = await axios.post('http://localhost:8000/api/documents/',
+                formData,
+                { headers: { 'Content-Type': 'multipart/form-data' }}
+            );
             console.log(response.data);
         } catch (error) {
             console.error(error);
@@ -20,7 +21,10 @@ export function UploadPDF() {
 
     return (
         <div>
-            <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+            <input 
+                type="file" 
+                onChange={(e) => setFile(e.target.files[0])} 
+            />
             <button onClick={handleUpload}>Загрузить</button>
         </div>
     );

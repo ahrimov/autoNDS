@@ -143,6 +143,8 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.JSONParser',  # Включает парсинг JSON
+        'rest_framework.parsers.FormParser',  # Для форм
+        'rest_framework.parsers.MultiPartParser',  # Для файлов
     ),
 }
 
